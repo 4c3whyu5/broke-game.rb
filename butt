@@ -1,0 +1,148 @@
+# THIS SHIT IS SOMEWHAT BROKE!
+# BUT WHO ISN'T.
+
+
+
+# 4 7x7 B453D G4M3.0001
+# -It's Ace Why Us-
+
+
+
+puts "-" * 100
+puts "*" * 100
+puts "-" * 100
+puts " AESOP AESOP " * 8
+puts " TXT BASED " * 9
+puts "-" * 100
+puts "*" * 100
+puts "-" * 100
+
+
+
+# A Treasure Place
+
+def treasure_place
+   puts "SAY WHAAAT!?! I heard there is a treasure in this place!"
+   puts "Where is it? *Looking *Looking *Looking ...."
+   puts "JUMPING JACK FLASH ON A CRACKER!!! LOOK OVER THERE!"
+   puts "It's the treasure ...The Treasure of Ollie Takesome."
+   puts "... Get it? Only take some ... some treasure. See what I did there?"
+   
+   print "> "
+   choice = $stdin.gets.chomp
+   
+   if choice.include?("0") || choice.include?("1")
+      how_much = choice.to_i
+   else
+      dead("TYPE A NUMBER!!!")
+   end
+   
+   if how_much < 50
+      puts "Ollie Takesome it's funny because it's a play on words."
+	  puts "I'm clever like that."
+	  exit(0)
+   else
+   end
+end
+
+
+
+# A Swamp Place
+
+def swamp_place
+   puts "Holy wack unlyrical lyrics Andre! We're in a swamp!"
+   puts "A Swamp Place : ) ... Should we walk around it?"
+   puts "Or should we walk through it? What are we to do?"
+   swamp_crossed = false
+   
+   while true
+      print "> "
+	  choice = $stdin.gets.chomp
+	  
+	  if choice == "through"
+	    dead("Great dead in a swamp!")
+	  elsif choice == "around" && !swamp_crossed
+	     puts "It took a little longer, but we made it. Gangsta!"
+		 swamp_crossed = true
+	  elsif choice == "around" && swamp_crossed
+	     dead("Gatorbator.")
+	  elsif choice == "cross" && swamp_crossed
+	     treasure_place
+	  else
+	     puts "Huh?"
+	  end
+   end
+end
+
+
+
+# A Gary Place
+
+def gary_place
+   puts "OMG!!! It's Gary! And he has his sock puppet!"
+   puts "Don't look just run!"
+   
+   print "> "
+   choice = $stdin.gets.chomp
+   
+   if choice.include? "run"
+      start
+   elsif choice.include? "look"
+      dead("You looooked!")
+   else
+      gary_place
+   end
+end
+
+
+
+# A Magic Place
+
+def magic_place
+   puts "YOU WENT STRAIGHT!" * 5
+   puts "-" * 100
+   puts "-" * 100
+   puts "-" * 100
+   puts "$" * 100
+   puts "$" * 100
+   puts "A MAGIC PLACE!" * 7
+   puts "$" * 100
+   puts "$" * 100
+   puts "-" * 100 
+   puts "-" * 100
+   puts "-" * 100
+   puts "THANKS FOR PLAYING NEXT TIME PICK A DIRECTION. ;^)"  * 2
+   
+   
+   
+def dead(aesop)
+   puts aesop, "It's ace why us."
+   exit(0)
+end
+
+
+
+def start
+   puts "Welcome to this text based game. It's very simple."
+   puts "... It's also kinda stupid. So yay. Let's start!"
+   puts "Picture you're at a fork in a road. Which direction do you go?"
+   puts "Left or Right? (all lower case pls.)"
+   
+   print "> "
+   choice = $stdin.gets.chomp
+   
+   if choice == "left"
+      treasure_place
+   elsif choice == "right"
+      gary_place
+   else 
+      dead("We're dead *richard.")
+   end
+end
+
+   if choice == "stratight"
+      magic_place
+   end
+end
+
+start
